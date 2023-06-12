@@ -1,5 +1,5 @@
 const sql = require("mssql/msnodesqlv8");
-// require("msnodesqlv8");
+const Dog = require("./Models");
 const conn = new sql.ConnectionPool({
   database: "DogsService",
   server: "DESKTOP-TJ2PP2N\\MSSQLSERVER01",
