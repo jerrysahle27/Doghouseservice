@@ -1,0 +1,34 @@
+{
+  "development": {
+    "username": "sa",
+    "password": "12345678",
+    "database": "DogsService",
+    "host": "DESKTOP-TJ2PP2N",
+    "port":"1434",
+    "dialect": "mssql",
+    "dialectOptions": {
+      "connectTimeout": 60000
+    }
+  },
+  "test": {
+    "username": "sa",
+    "port":"1434",
+    "password": "12345678",
+    "database": "DogsService",
+    "host": "DESKTOP-TJ2PP2N",
+    "dialect": "mssql",
+    "dialectOptions": {
+      "connectTimeout": 60000
+    }
+  },
+  "production": {
+   "username": "sa",
+    "password": "12345678",
+    "database": "DogsService",
+    "host": "DESKTOP-TJ2PP2N",
+    "dialect": "mssql",
+    "dialectOptions": {
+      "connectTimeout": 60000
+    }
+  }
+}

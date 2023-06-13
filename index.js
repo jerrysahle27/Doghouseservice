@@ -1,16 +1,13 @@
-const sql = require("mssql/msnodesqlv8");
-const Dog = require("./Models");
-const conn = new sql.ConnectionPool({
-  database: "DogsService",
-  server: "DESKTOP-TJ2PP2N\\MSSQLSERVER01",
-  driver: "msnodesqlv8",
-  options: {
-    trustedConnection: true,
-  },
-});
-conn
-  .connect()
-  .then(() => {
-    console.log("finally i hate you");
-  })
-  .catch((error) => console.error(error));
+const express = require("express");
+const routes = require("./routes");
+const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 5000;
+const app = express();
+app.use(bodyParser.json());
+// app.use(function (req, res, next) {
+//   req.setTimeout(20, function () {
+//     return res.status(500).json({ message: "Server time out!" });
+//   });
+// });
+app.use("/", routes);
+app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
