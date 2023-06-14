@@ -29,11 +29,18 @@ const getAllDogs = async (req, res) => {
   try {
     if (req.query.attribute !== undefined && req.query.order !== undefined) {
       const { attribute, order } = req.query;
-      const dogs = await Dog.findAll({ order: [[attribute, order]] });
+      const dogs = await Dog.findAll({
+        order: [[attribute, order]],
+        attributes: ["name", "color", "tailLength", "weight"],
+      });
       return res.status(200).json({ dogs });
     } else {
       const { pageNumber, limit } = getPagination(req.query);
-      const dogs = await Dog.findAll({ offset: pageNumber, limit: limit });
+      const dogs = await Dog.findAll({
+        offset: pageNumber,
+        limit: limit,
+        attributes: ["name", "color", "tailLength", "weight"],
+      });
       return res.status(200).json({ dogs });
     }
   } catch (error) {

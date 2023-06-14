@@ -4,6 +4,8 @@ function ValidateInput(value) {
 
   if (name == null) {
     errors.name = "Name is required";
+  } else if (typeof name !== "string") {
+    errors.name = "Name must be string";
   }
   if (weight == null) {
     errors.weight = "Weight is required";
@@ -21,6 +23,8 @@ function ValidateInput(value) {
   }
   if (color == null) {
     errors.color = "Color is required";
+  } else if (typeof color !== "string") {
+    errors.color = "Color must be string";
   }
   return errors;
 }
